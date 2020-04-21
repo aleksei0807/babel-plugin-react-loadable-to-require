@@ -29,13 +29,13 @@ module.exports = function ({ types: t }) {
                 }
             },
 
-            Program: {
-                exit() {
-                    if (objectPath) {
-                        objectPath.remove()
-                    }
-                }
-            }
+            // Program: {
+            //     exit() {
+            //         if (objectPath) {
+            //             objectPath.remove()
+            //         }
+            //     }
+            // }
         },
     }
 }
