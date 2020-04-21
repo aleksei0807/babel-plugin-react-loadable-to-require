@@ -19,7 +19,13 @@ module.exports = function ({ types: t }) {
                 if (objectPathName && path.node.callee.name === objectPathName) {
                     const modulePath = path.node.arguments[0].properties
                         .find((v) => v.key.name === 'loader').value.body.arguments[0].value
-                    path.replaceWith(t.callExpression(t.identifier('require'), [t.stringLiteral(modulePath)]))
+
+                    const newExpr = t.memberExpression(
+                        t.callExpression(t.identifier('require'), [t.stringLiteral(modulePath)]),
+                        t.identifier('default')
+                    )
+
+                    path.replaceWith(newExpr)
                 }
             },
 
