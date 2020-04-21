@@ -1,9 +1,8 @@
-export default function ({ types: t }) {
+module.exports = function ({ types: t }) {
     let objectPathName
     let objectPath
 
     return {
-
         visitor: {
             ImportDeclaration(path) {
                 if (path.node.source.value === 'react-loadable') {
